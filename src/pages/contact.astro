@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Get in touch - let's connect and start a conversation">
+	<div class="contact-hero">
+		<div class="container">
+			<h1>Get in Touch</h1>
+			<p class="hero-description">
+				I'd love to hear from you! Whether you have a question, want to collaborate, 
+				or just want to say hello, feel free to reach out.
+			</p>
+		</div>
+	</div>
+
+	<section class="contact-content">
+		<div class="container">
+			<div class="contact-grid">
+				<div class="contact-info">
+					<h2>Let's Connect</h2>
+					<p>
+						I'm always open to interesting conversations, collaboration opportunities, 
+						and new connections. Here are the best ways to reach me:
+					</p>
+
+					<div class="contact-methods">
+						<div class="contact-method">
+							<div class="method-icon">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+									<polyline points="22,6 12,13 2,6"></polyline>
+								</svg>
+							</div>
+							<div class="method-details">
+								<h3>Email</h3>
+								<p>your.email@example.com</p>
+								<a href="mailto:your.email@example.com" class="method-link">Send a message</a>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<div class="method-icon">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+									<rect x="2" y="9" width="4" height="12"></rect>
+									<circle cx="4" cy="4" r="2"></circle>
+								</svg>
+							</div>
+							<div class="method-details">
+								<h3>LinkedIn</h3>
+								<p>Professional networking</p>
+								<a href="#" class="method-link">Connect with me</a>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<div class="method-icon">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+								</svg>
+							</div>
+							<div class="method-details">
+								<h3>GitHub</h3>
+								<p>Check out my code</p>
+								<a href="#" class="method-link">View repositories</a>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<div class="method-icon">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+								</svg>
+							</div>
+							<div class="method-details">
+								<h3>Twitter</h3>
+								<p>@yourusername</p>
+								<a href="#" class="method-link">Follow me</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="response-time">
+						<div class="response-card">
+							<h3>Response Time</h3>
+							<p>I typically respond to messages within 24-48 hours. For urgent matters, email is the best option.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-form-section">
+					<form class="contact-form card">
+						<h2>Send a Message</h2>
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" id="name" name="name" required />
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" required />
+						</div>
+						<div class="form-group">
+							<label for="subject">Subject</label>
+							<input type="text" id="subject" name="subject" required />
+						</div>
+						<div class="form-group">
+							<label for="message">Message</label>
+							<textarea id="message" name="message" rows="6" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary btn-full">Send Message</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="availability">
+				<div class="availability-card card">
+					<div class="availability-content">
+						<h2>Current Availability</h2>
+						<p>
+							I'm currently available for freelance projects, consulting, and interesting collaborations. 
+							If you have an exciting project or opportunity, I'd love to discuss it!
+						</p>
+						<div class="availability-status">
+							<span class="status-indicator available"></span>
+							<span>Available for new projects</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.contact-hero {
+		padding: calc(var(--spacing) * 12) 0 calc(var(--spacing) * 8) 0;
+		background: var(--bg-primary);
+		text-align: center;
+	}
+
+	.contact-hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: calc(var(--spacing) * 4);
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.contact-content {
+		padding: calc(var(--spacing) * 8) 0;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: calc(var(--spacing) * 8);
+		margin-bottom: calc(var(--spacing) * 12);
+	}
+
+	.contact-info h2 {
+		margin-bottom: calc(var(--spacing) * 4);
+	}
+
+	.contact-info > p {
+		margin-bottom: calc(var(--spacing) * 6);
+		font-size: 1.125rem;
+		line-height: 1.6;
+	}
+
+	.contact-methods {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 4);
+		margin-bottom: calc(var(--spacing) * 8);
+	}
+
+	.contact-method {
+		display: flex;
+		gap: calc(var(--spacing) * 4);
+		align-items: flex-start;
+	}
+
+	.method-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+		color: white;
+		border-radius: var(--radius);
+		flex-shrink: 0;
+	}
+
+	.method-details h3 {
+		margin-bottom: calc(var(--spacing) * 1);
+		color: var(--text-primary);
+		font-size: 1.125rem;
+	}
+
+	.method-details p {
+		margin-bottom: calc(var(--spacing) * 2);
+		color: var(--text-secondary);
+		font-size: 0.875rem;
+	}
+
+	.method-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.875rem;
+		transition: color 0.2s ease;
+	}
+
+	.method-link:hover {
+		color: var(--primary-light);
+	}
+
+	.response-time {
+		padding: calc(var(--spacing) * 4);
+		background: var(--bg-accent);
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--border-light);
+	}
+
+	.response-card h3 {
+		margin-bottom: calc(var(--spacing) * 2);
+		color: var(--primary);
+	}
+
+	.response-card p {
+		margin: 0;
+		color: var(--text-secondary);
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+
+	.contact-form {
+		border: 1px solid var(--border-light);
+	}
+
+	.contact-form h2 {
+		margin-bottom: calc(var(--spacing) * 6);
+		text-align: center;
+	}
+
+	.form-group {
+		margin-bottom: calc(var(--spacing) * 4);
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: calc(var(--spacing) * 2);
+		font-weight: 500;
+		color: var(--text-primary);
+	}
+
+	.form-group input,
+	.form-group textarea {
+		width: 100%;
+		padding: calc(var(--spacing) * 3);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		font-size: 1rem;
+		transition: all 0.2s ease;
+		font-family: inherit;
+	}
+
+	.form-group input:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: var(--primary);
+		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.btn-full {
+		width: 100%;
+	}
+
+	.availability {
+		margin-top: calc(var(--spacing) * 8);
+	}
+
+	.availability-card {
+		background: linear-gradient(135deg, var(--success) 0%, var(--secondary) 100%);
+		color: white;
+		border: none;
+		text-align: center;
+	}
+
+	.availability-card h2 {
+		color: white;
+		margin-bottom: calc(var(--spacing) * 4);
+	}
+
+	.availability-card p {
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: calc(var(--spacing) * 4);
+		font-size: 1.125rem;
+	}
+
+	.availability-status {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: calc(var(--spacing) * 2);
+		font-weight: 500;
+	}
+
+	.status-indicator {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+	}
+
+	.status-indicator.available {
+		background: #22c55e;
+		box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+	}
+
+	@media (max-width: 1024px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+			gap: calc(var(--spacing) * 6);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.contact-method {
+			flex-direction: column;
+			text-align: center;
+			gap: calc(var(--spacing) * 3);
+		}
+
+		.method-icon {
+			align-self: center;
+		}
+	}
+</style>
+
+<script>
+	// Handle form submission
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.querySelector('.contact-form');
+		
+		if (form) {
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				
+				// Here you would typically send the form data to a server
+				// For now, we'll just show a success message
+				alert('Thank you for your message! I\'ll get back to you soon.');
+				
+				// Reset the form
+				form.reset();
+			});
+		}
+	});
+</script>

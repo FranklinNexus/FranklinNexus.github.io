@@ -1,0 +1,406 @@
+---
+import ArrowIcon from '../components/ArrowIcon.astro';
+
+export interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Personal blog showcasing thoughts, projects, and experiences" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="nav-container">
+				<a href="/" class="nav-brand">Wisdom Echoes</a>
+				<div class="nav-links">
+					<a href="/" class={currentPath === '/' ? 'nav-link active' : 'nav-link'}>Home</a>
+					<a href="/about" class={currentPath === '/about' ? 'nav-link active' : 'nav-link'}>About</a>
+					<a href="/blog" class={currentPath === '/blog' ? 'nav-link active' : 'nav-link'}>Blog</a>
+					<a href="/projects" class={currentPath === '/projects' ? 'nav-link active' : 'nav-link'}>Projects</a>
+					<a href="/contact" class={currentPath === '/contact' ? 'nav-link active' : 'nav-link'}>Contact</a>
+				</div>
+				<button class="nav-toggle" id="navToggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<div class="nav-arrow">
+					<ArrowIcon direction="right" size={40} color="var(--primary)" />
+				</div>
+			</div>
+		</nav>
+
+		<main class="main-content">
+			<slot />
+		</main>
+
+		<footer class="footer">
+			<div class="footer-container">
+				<div class="footer-arrow">
+					<ArrowIcon direction="left" size={40} color="var(--primary)" />
+				</div>
+				<p>&copy; 2025 Your Name. All rights reserved.</p>
+				<div class="footer-links">
+					<a href="/about">About</a>
+					<a href="/blog">Blog</a>
+					<a href="/projects">Projects</a>
+					<a href="/contact">Contact</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary: #d32f2f; /* 红色主色 */
+		--primary-light: #ff5252; /* 亮红色 */
+		--secondary: #111111; /* 黑色 */
+		--secondary-light: #222222; /* 深灰黑 */
+		--accent: #ffffff; /* 白色 */
+		--accent-light: #f5f5f5; /* 浅白 */
+		--success: #43a047;
+		--warning: #ffa000;
+		--error: #d32f2f;
+		--text-primary: #111111; /* 黑色文字 */
+		--text-secondary: #d32f2f; /* 红色副标题 */
+		--text-muted: #888888; /* 灰色 */
+		--bg-primary: #fff; /* 白色背景 */
+		--bg-secondary: #f5f5f5; /* 浅灰背景 */
+		--bg-accent: #fff; /* 白色强调 */
+		--border: #d32f2f; /* 红色线条 */
+		--border-light: #e0e0e0; /* 浅灰线条 */
+		--shadow: none; /* 极简无阴影 */
+		--shadow-md: none;
+		--shadow-lg: none;
+		--radius: 0.25rem; /* 更锐利 */
+		--radius-lg: 0.5rem;
+		--spacing: 0.5rem;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border-radius: 0;
+	}
+
+	html {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		background: var(--bg-secondary);
+		color: var(--text-primary);
+		line-height: 1.6;
+	}
+
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		background: var(--bg-primary);
+	}
+
+	/* 线条风格导航 */
+	.nav {
+		background: var(--bg-primary);
+		border-bottom: 2px solid var(--border);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 calc(var(--spacing) * 4);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 4rem;
+	}
+
+	.nav-brand {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--primary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.nav-brand:hover {
+		color: var(--primary-light);
+	}
+
+	.nav-links {
+		display: flex;
+		gap: calc(var(--spacing) * 6);
+	}
+
+	.nav-link {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		position: relative;
+		padding: calc(var(--spacing) * 2) 0;
+	}
+
+	.nav-link:hover {
+		color: var(--primary);
+	}
+
+	.nav-link.active {
+		color: var(--primary);
+	}
+
+	.nav-link.active::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: linear-gradient(90deg, var(--primary), var(--secondary));
+		border-radius: 0;
+	}
+
+	.nav-toggle {
+		display: none;
+		flex-direction: column;
+		background: none;
+		border: none;
+		cursor: pointer;
+		gap: 4px;
+	}
+
+	.nav-toggle span {
+		width: 24px;
+		height: 2px;
+		background: var(--text-primary);
+		transition: all 0.3s ease;
+	}
+
+	/* Main content */
+	.main-content {
+		flex: 1;
+		padding: calc(var(--spacing) * 8) 0;
+	}
+
+	/* Footer */
+	.footer {
+		background: var(--secondary);
+		color: var(--bg-primary);
+		padding: calc(var(--spacing) * 6) 0;
+		margin-top: auto;
+		border-top: 2px solid var(--border);
+	}
+
+	.footer-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 calc(var(--spacing) * 4);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: calc(var(--spacing) * 4);
+	}
+
+	.footer-links a {
+		color: var(--accent);
+		text-decoration: none;
+		transition: border-color 0.2s;
+		border-bottom: 1px solid var(--border);
+		padding-bottom: 2px;
+	}
+
+	.footer-links a:hover {
+		border-color: var(--primary-light);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.nav-links {
+			display: none;
+		}
+
+		.nav-toggle {
+			display: flex;
+		}
+
+		.footer-container {
+			flex-direction: column;
+			gap: calc(var(--spacing) * 4);
+			text-align: center;
+		}
+
+		.main-content {
+			padding: calc(var(--spacing) * 6) 0;
+		}
+	}
+
+	/* Utility classes */
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 calc(var(--spacing) * 4);
+	}
+
+	.section {
+		padding: calc(var(--spacing) * 12) 0;
+	}
+
+	.card {
+		border: 2px solid var(--border);
+		border-radius: 0;
+		box-shadow: none;
+		padding: calc(var(--spacing) * 6);
+		transition: all 0.3s ease;
+	}
+
+	.card:hover {
+		box-shadow: var(--shadow-lg);
+		transform: translateY(-2px);
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: calc(var(--spacing) * 3) calc(var(--spacing) * 6);
+		border-radius: var(--radius);
+		font-weight: 500;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+	}
+
+	/* 按钮箭头风格 */
+	.btn-primary {
+		background: var(--primary);
+		color: var(--bg-primary);
+		border: 2px solid var(--primary);
+		border-radius: 0;
+		position: relative;
+	}
+	.btn-primary::after {
+		content: '→';
+		display: inline-block;
+		margin-left: 0.5em;
+		font-weight: bold;
+		color: var(--bg-primary);
+	}
+	.btn-primary:hover {
+		background: var(--secondary);
+		color: var(--primary-light);
+		border-color: var(--primary-light);
+	}
+
+	.btn-secondary {
+		background: var(--bg-primary);
+		color: var(--primary);
+		border: 2px solid var(--primary);
+		border-radius: 0;
+		position: relative;
+	}
+	.btn-secondary::after {
+		content: '→';
+		display: inline-block;
+		margin-left: 0.5em;
+		font-weight: bold;
+		color: var(--primary);
+	}
+	.btn-secondary:hover {
+		background: var(--primary);
+		color: var(--bg-primary);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		margin-bottom: calc(var(--spacing) * 3);
+		color: var(--text-primary);
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+	}
+
+	h2 {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+
+	p {
+		margin-bottom: calc(var(--spacing) * 3);
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2rem;
+		}
+
+		h2 {
+			font-size: 1.75rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+		}
+	}
+
+	.nav-arrow {
+		display: flex;
+		align-items: center;
+		margin-left: 1.5rem;
+		border-left: 4px solid var(--primary);
+		padding-left: 0.5rem;
+	}
+	.footer-arrow {
+		display: flex;
+		align-items: center;
+		margin-right: 1.5rem;
+		border-right: 4px solid var(--primary);
+		padding-right: 0.5rem;
+	}
+</style>
+
+<script>
+	// Mobile navigation toggle
+	document.addEventListener('DOMContentLoaded', () => {
+		const navToggle = document.getElementById('navToggle');
+		const navLinks = document.querySelector('.nav-links');
+		
+		if (navToggle && navLinks) {
+			navToggle.addEventListener('click', () => {
+				navLinks.classList.toggle('active');
+			});
+		}
+	});
+</script>

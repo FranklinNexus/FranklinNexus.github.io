@@ -1,0 +1,286 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Me" description="Learn more about my background, interests, and journey">
+	<div class="about-hero">
+		<div class="container">
+			<div class="about-content">
+				<div class="about-image">
+					<img src="/btc-girl.png" alt="Profile photo" />
+				</div>
+				<div class="about-text">
+					<h1>About Me</h1>
+					<p class="lead">
+						Hi, I'm Franklin Nexus (Kong Fanrui), an adventurer born in 2006 and a freshman majoring in Microelectronics at XJTLU.
+						Welcome to my Wisdom Echoes!
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="about-details">
+		<div class="container">
+			<div class="details-grid">
+				<div class="detail-card card">
+					<h3>Daily Habits</h3>
+					<p>
+						I read for 1 hour and run for 1 hour every day. These two habits help me maintain a balance between mind and body, exploring the ocean of knowledge while keeping energetic.
+					</p>
+				</div>
+				<div class="detail-card card">
+					<h3>Tech Stack & Projects</h3>
+					<ul class="tech-interests-list">
+						<li>🔬 Microelectronics - Chip Design & R&D</li>
+						<li>🎥 Video Website Development</li>
+						<li>⛓️ Monad Blockchain Development</li>
+						<li>🤖 AI Research & Application</li>
+						<li>💻 Hardware-Software Co-design</li>
+						<li>🌐 Web Development & Design</li>
+					</ul>
+				</div>
+				<div class="detail-card card">
+					<h3>Skills</h3>
+					<div class="skills-grid">
+						<span class="skill-tag">JavaScript</span>
+						<span class="skill-tag">TypeScript</span>
+						<span class="skill-tag">Microelectronics</span>
+						<span class="skill-tag">Chip Design</span>
+						<span class="skill-tag">Python</span>
+						<span class="skill-tag">Blockchain</span>
+						<span class="skill-tag">AI Research</span>
+						<span class="skill-tag">Astro</span>
+						<span class="skill-tag">Electric Guitar</span>
+						<span class="skill-tag">ACGN</span>
+					</div>
+				</div>
+				<div class="detail-card card">
+					<h3>Philosophy</h3>
+					<p>
+						I'm an optimistic nihilist. I deny the absolute meaning of life, but wish you have fun.
+					</p>
+					<p>
+						In a world without absolute meaning, I choose to fill every day with curiosity and creativity, sharing knowledge in Wisdom Echoes and exploring possibilities in the real world.
+					</p>
+				</div>
+			</div>
+			<div class="cta-section">
+				<div class="cta-card card">
+					<h2>Explore the Unknown Together</h2>
+					<p>
+						If you are an alien, a time traveler, someone from another world, or just an interesting ordinary human, welcome to Wisdom Echoes and feel free to connect with me!
+					</p>
+					<div class="cta-actions">
+						<a href="/contact" class="btn btn-primary">Contact Me</a>
+						<a href="/projects" class="btn btn-secondary">View Projects</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.about-hero {
+		padding: calc(var(--spacing) * 12) 0;
+		background: var(--bg-primary);
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: 300px 1fr;
+		gap: calc(var(--spacing) * 8);
+		align-items: center;
+	}
+
+	.about-image img {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 2px solid var(--primary);
+		box-shadow: none;
+	}
+
+	.about-text h1 {
+		font-size: 2.5rem;
+		margin-bottom: calc(var(--spacing) * 4);
+		color: var(--secondary);
+		border-left: 4px solid var(--primary);
+		padding-left: 0.5em;
+		font-weight: 700;
+	}
+
+	.lead {
+		font-size: 1.125rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+
+	.about-details {
+		padding: calc(var(--spacing) * 12) 0;
+	}
+
+	.details-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: calc(var(--spacing) * 6);
+		margin-bottom: calc(var(--spacing) * 12);
+	}
+
+	.detail-card {
+		border: 2px solid var(--border);
+		border-radius: 0;
+		background: var(--bg-primary);
+	}
+
+	.detail-card h3 {
+		color: var(--primary);
+		margin-bottom: calc(var(--spacing) * 4);
+		font-weight: 600;
+		letter-spacing: 0.05em;
+	}
+
+	.interests-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.interests-list li {
+		padding: calc(var(--spacing) * 2) 0;
+		border-bottom: 1px solid var(--border-light);
+		color: var(--text-secondary);
+		transition: color 0.2s ease;
+	}
+
+	.interests-list li:last-child {
+		border-bottom: none;
+	}
+
+	.interests-list li:hover {
+		color: var(--primary);
+	}
+
+	.skills-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: calc(var(--spacing) * 2);
+	}
+
+	.skill-tag {
+		background: var(--bg-primary);
+		color: var(--primary);
+		padding: calc(var(--spacing) * 1) calc(var(--spacing) * 3);
+		border-radius: 0;
+		font-size: 0.875rem;
+		font-weight: 500;
+		border: 2px solid var(--primary);
+		transition: background 0.2s, color 0.2s;
+	}
+	.skill-tag:hover {
+		background: var(--primary);
+		color: var(--bg-primary);
+	}
+
+	.contradictions-list {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 4);
+	}
+
+	.contradiction-item {
+		display: flex;
+		gap: calc(var(--spacing) * 3);
+		align-items: flex-start;
+	}
+
+	.contradiction-item .number {
+		background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+		color: white;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.875rem;
+		font-weight: 600;
+		flex-shrink: 0;
+	}
+
+	.contradiction-item p {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.hobby-list, .tech-interests-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.hobby-list li, .tech-interests-list li {
+		padding: calc(var(--spacing) * 2) 0;
+		border-bottom: 1px solid var(--border-light);
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+
+	.hobby-list li:last-child, .tech-interests-list li:last-child {
+		border-bottom: none;
+	}
+
+	.cta-section {
+		margin-top: calc(var(--spacing) * 8);
+	}
+
+	.cta-card {
+		text-align: center;
+		background: var(--bg-primary);
+		border: 2px solid var(--primary);
+		border-radius: 0;
+	}
+
+	.cta-card h2 {
+		margin-bottom: calc(var(--spacing) * 4);
+		color: var(--secondary);
+	}
+
+	.cta-card p {
+		margin-bottom: calc(var(--spacing) * 6);
+		font-size: 1.125rem;
+	}
+
+	.cta-actions {
+		display: flex;
+		gap: calc(var(--spacing) * 4);
+		justify-content: center;
+	}
+
+	.cta-actions .btn {
+		border-radius: 0;
+	}
+
+	@media (max-width: 768px) {
+		.about-content {
+			grid-template-columns: 1fr;
+			text-align: center;
+			gap: calc(var(--spacing) * 6);
+		}
+
+		.about-image img {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+		}
+
+		.details-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-actions {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+</style>

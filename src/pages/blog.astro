@@ -1,0 +1,359 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample blog posts - in a real implementation, these would come from a CMS or markdown files
+const blogPosts = [
+	{
+		id: 1,
+		title: "The Art of Clean Code",
+		excerpt: "Exploring principles and practices that make code readable, maintainable, and enjoyable to work with.",
+		date: "2025-01-15",
+		readTime: "5 min read",
+		category: "Development"
+	},
+	{
+		id: 2,
+		title: "Discovering New JavaScript Features",
+		excerpt: "A deep dive into the latest JavaScript features that are changing how we write modern applications.",
+		date: "2025-01-10",
+		readTime: "7 min read",
+		category: "JavaScript"
+	},
+	{
+		id: 3,
+		title: "Building Better User Interfaces",
+		excerpt: "Lessons learned from creating intuitive and accessible user interfaces that users actually enjoy.",
+		date: "2025-01-05",
+		readTime: "6 min read",
+		category: "Design"
+	}
+];
+---
+
+<Layout title="Blog" description="Interesting discoveries, thoughts, and insights from my journey">
+	<div class="blog-hero">
+		<div class="container">
+			<h1>Blog</h1>
+			<p class="hero-description">
+				Sharing interesting discoveries, thoughts, and insights from my daily experiences and continuous learning journey.
+			</p>
+		</div>
+	</div>
+
+	<section class="blog-content">
+		<div class="container">
+			<div class="blog-grid">
+				<div class="posts-section">
+					<h2>Recent Posts</h2>
+					<div class="posts-list">
+						{blogPosts.map(post => (
+							<article class="post-card card">
+								<div class="post-meta">
+									<span class="post-category">{post.category}</span>
+									<span class="post-date">{post.date}</span>
+								</div>
+								<h3 class="post-title">{post.title}</h3>
+								<p class="post-excerpt">{post.excerpt}</p>
+								<div class="post-footer">
+									<span class="read-time">{post.readTime}</span>
+									<a href={`/blog/${post.id}`} class="read-more">Read more →</a>
+								</div>
+							</article>
+						))}
+					</div>
+
+					<div class="load-more">
+						<button class="btn btn-secondary">Load More Posts</button>
+					</div>
+				</div>
+
+				<aside class="sidebar">
+					<div class="sidebar-card card">
+						<h3>Categories</h3>
+						<ul class="category-list">
+							<li><a href="#" class="category-link">Development <span>(12)</span></a></li>
+							<li><a href="#" class="category-link">JavaScript <span>(8)</span></a></li>
+							<li><a href="#" class="category-link">Design <span>(6)</span></a></li>
+							<li><a href="#" class="category-link">Learning <span>(5)</span></a></li>
+							<li><a href="#" class="category-link">Tools <span>(4)</span></a></li>
+						</ul>
+					</div>
+
+					<div class="sidebar-card card">
+						<h3>Popular Posts</h3>
+						<ul class="popular-list">
+							<li>
+								<a href="#" class="popular-link">Understanding Async JavaScript</a>
+								<span class="popular-date">Jan 12, 2025</span>
+							</li>
+							<li>
+								<a href="#" class="popular-link">CSS Grid vs Flexbox</a>
+								<span class="popular-date">Jan 8, 2025</span>
+							</li>
+							<li>
+								<a href="#" class="popular-link">Modern Development Workflow</a>
+								<span class="popular-date">Jan 3, 2025</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="sidebar-card card">
+						<h3>Newsletter</h3>
+						<p>Get notified when I publish new posts.</p>
+						<form class="newsletter-form">
+							<input type="email" placeholder="Enter your email" class="newsletter-input" />
+							<button type="submit" class="btn btn-primary">Subscribe</button>
+						</form>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.blog-hero {
+		padding: calc(var(--spacing) * 12) 0 calc(var(--spacing) * 8) 0;
+		background: var(--bg-primary);
+		text-align: center;
+	}
+
+	.blog-hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: calc(var(--spacing) * 4);
+		color: var(--secondary);
+		border-left: 4px solid var(--primary);
+		padding-left: 0.5em;
+		font-weight: 700;
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.blog-content {
+		padding: calc(var(--spacing) * 8) 0;
+	}
+
+	.blog-grid {
+		display: grid;
+		grid-template-columns: 1fr 300px;
+		gap: calc(var(--spacing) * 8);
+	}
+
+	.posts-section h2 {
+		margin-bottom: calc(var(--spacing) * 6);
+		color: var(--primary);
+		border-bottom: 2px solid var(--primary);
+		padding-bottom: 0.25em;
+	}
+
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 6);
+		margin-bottom: calc(var(--spacing) * 8);
+	}
+
+	.post-card {
+		border: 2px solid var(--border);
+		border-radius: 0;
+		box-shadow: none;
+		background: var(--bg-primary);
+		transition: all 0.3s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-2px);
+		border-color: var(--primary-light);
+	}
+
+	.post-meta {
+		display: flex;
+		align-items: center;
+		gap: calc(var(--spacing) * 2);
+		margin-bottom: calc(var(--spacing) * 3);
+	}
+
+	.post-category {
+		background: var(--primary);
+		color: var(--bg-primary);
+		border-radius: 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
+	}
+
+	.post-date {
+		color: var(--text-muted);
+		font-size: 0.875rem;
+	}
+
+	.post-title {
+		font-size: 1.5rem;
+		margin-bottom: calc(var(--spacing) * 3);
+		color: var(--text-primary);
+	}
+
+	.post-title:hover {
+		color: var(--primary);
+	}
+
+	.post-excerpt {
+		margin-bottom: calc(var(--spacing) * 4);
+		line-height: 1.6;
+	}
+
+	.post-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: calc(var(--spacing) * 3);
+		border-top: 1px solid var(--border-light);
+	}
+
+	.read-time {
+		color: var(--text-muted);
+		font-size: 0.875rem;
+	}
+
+	.read-more {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.2s ease;
+		position: relative;
+		padding-right: 1.2em;
+	}
+	.read-more::after {
+		content: '→';
+		position: absolute;
+		right: 0;
+		top: 0;
+		color: var(--primary);
+		font-weight: bold;
+		transition: color 0.2s;
+	}
+	.read-more:hover {
+		color: var(--secondary);
+	}
+	.read-more:hover::after {
+		color: var(--secondary);
+	}
+
+	.load-more {
+		text-align: center;
+	}
+
+	.sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 6);
+	}
+
+	.sidebar-card {
+		border: 2px solid var(--border);
+		border-radius: 0;
+		background: var(--bg-primary);
+	}
+
+	.sidebar-card h3 {
+		margin-bottom: calc(var(--spacing) * 4);
+		color: var(--primary);
+	}
+
+	.category-list, .popular-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.category-list li, .popular-list li {
+		padding: calc(var(--spacing) * 2) 0;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.category-list li:last-child, .popular-list li:last-child {
+		border-bottom: none;
+	}
+
+	.category-link, .popular-link {
+		color: var(--text-secondary);
+		text-decoration: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: color 0.2s ease;
+	}
+
+	.category-link:hover, .popular-link:hover {
+		color: var(--primary);
+	}
+
+	.category-link span {
+		color: var(--text-muted);
+		font-size: 0.875rem;
+	}
+
+	.popular-list li {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 1);
+	}
+
+	.popular-date {
+		color: var(--text-muted);
+		font-size: 0.75rem;
+	}
+
+	.newsletter-form {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 3);
+	}
+
+	.newsletter-input {
+		padding: calc(var(--spacing) * 3);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		font-size: 0.875rem;
+	}
+
+	.newsletter-input:focus {
+		outline: none;
+		border-color: var(--primary);
+		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+	}
+
+	@media (max-width: 1024px) {
+		.blog-grid {
+			grid-template-columns: 1fr;
+			gap: calc(var(--spacing) * 6);
+		}
+
+		.sidebar {
+			order: -1;
+		}
+
+		.sidebar {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: calc(var(--spacing) * 4);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.post-footer {
+			flex-direction: column;
+			gap: calc(var(--spacing) * 2);
+			align-items: flex-start;
+		}
+
+		.sidebar {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

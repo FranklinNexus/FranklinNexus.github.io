@@ -1,0 +1,19 @@
+---
+export interface Props {
+  direction?: 'right' | 'left' | 'up' | 'down';
+  size?: number;
+  color?: string;
+}
+const { direction = 'right', size = 32, color = 'currentColor' } = Astro.props;
+let rotate = 0;
+switch (direction) {
+  case 'up': rotate = -90; break;
+  case 'down': rotate = 90; break;
+  case 'left': rotate = 180; break;
+  default: rotate = 0;
+}
+---
+<svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={`transform: rotate(${rotate}deg); display: inline-block;`}>
+  <path d="M6 16H26" stroke={color} stroke-width="4" stroke-linecap="round"/>
+  <path d="M18 8L26 16L18 24" stroke={color} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> 

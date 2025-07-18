@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArrowIcon from '../components/ArrowIcon.astro';
+---
+
+<Layout title="Welcome to My Blog" description="Personal blog sharing thoughts, projects, and discoveries">
+	<div class="hero">
+		<div class="container">
+			<div class="hero-content">
+				<h1 class="hero-title">Welcome to Wisdom Echoes</h1>
+				<div class="hero-arrow">
+					<ArrowIcon direction="down" size={56} color="var(--primary)" />
+				</div>
+				<p class="hero-description">
+					I'm a passionate developer sharing my journey through code, creativity, and discovery. 
+					Explore my thoughts, projects, and the interesting things I learn along the way.
+				</p>
+				<div class="hero-actions">
+					<a href="/about" class="btn btn-primary">Learn About Me</a>
+					<a href="/blog" class="btn btn-secondary">Read My Blog</a>
+				</div>
+			</div>
+			<div class="hero-image">
+				<img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Developer workspace" />
+			</div>
+		</div>
+	</div>
+
+	<section class="features">
+		<div class="container">
+			<h2 class="section-title">What You'll Find Here</h2>
+			<div class="section-arrow">
+				<ArrowIcon direction="down" size={40} color="var(--primary)" />
+			</div>
+			<div class="features-grid">
+				<div class="feature-card card">
+					<div class="feature-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+							<circle cx="12" cy="7" r="4"></circle>
+						</svg>
+					</div>
+					<h3>About Me</h3>
+					<p>Get to know my background, interests, and the journey that brought me here.</p>
+					<a href="/about" class="feature-link">Learn more →</a>
+				</div>
+
+				<div class="feature-card card">
+					<div class="feature-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+							<polyline points="14,2 14,8 20,8"></polyline>
+							<line x1="16" y1="13" x2="8" y2="13"></line>
+							<line x1="16" y1="17" x2="8" y2="17"></line>
+							<polyline points="10,9 9,9 8,9"></polyline>
+						</svg>
+					</div>
+					<h3>Blog Posts</h3>
+					<p>Interesting discoveries, thoughts, and insights from my daily experiences and learning.</p>
+					<a href="/blog" class="feature-link">Read posts →</a>
+				</div>
+
+				<div class="feature-card card">
+					<div class="feature-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+							<rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+							<line x1="6" y1="6" x2="6" y2="6"></line>
+							<line x1="6" y1="18" x2="6" y2="18"></line>
+						</svg>
+					</div>
+					<h3>Projects</h3>
+					<p>A showcase of my work, experiments, and the projects I'm passionate about building.</p>
+					<a href="/projects" class="feature-link">View projects →</a>
+				</div>
+
+				<div class="feature-card card">
+					<div class="feature-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+						</svg>
+					</div>
+					<h3>Contact</h3>
+					<p>Let's connect! Find ways to reach out and start a conversation.</p>
+					<a href="/contact" class="feature-link">Get in touch →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		padding: calc(var(--spacing) * 12) 0;
+		background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+	}
+
+	.hero .container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: calc(var(--spacing) * 12);
+		align-items: center;
+	}
+
+	.hero-title {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: calc(var(--spacing) * 4);
+		background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: var(--text-secondary);
+		margin-bottom: calc(var(--spacing) * 6);
+		line-height: 1.6;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: calc(var(--spacing) * 4);
+	}
+
+	.hero-image {
+		position: relative;
+	}
+
+	.hero-image img {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.hero-arrow {
+		display: flex;
+		justify-content: flex-start;
+		margin: 1.5rem 0 0.5rem 0;
+	}
+
+	.section-arrow {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+	}
+
+	.features {
+		padding: calc(var(--spacing) * 16) 0;
+	}
+
+	.section-title {
+		text-align: center;
+		margin-bottom: calc(var(--spacing) * 12);
+		font-size: 2.5rem;
+		font-weight: 600;
+		color: var(--secondary);
+		border-bottom: 2px solid var(--primary);
+		padding-bottom: 0.5em;
+		letter-spacing: 0.05em;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: calc(var(--spacing) * 6);
+		position: relative;
+	}
+
+	.features-grid::before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: -32px;
+		width: 4px;
+		height: calc(100% + 64px);
+		background: var(--primary);
+		transform: translateX(-50%);
+		opacity: 0.12;
+		z-index: 0;
+	}
+
+	.feature-card {
+		text-align: center;
+		border: 2px solid var(--border);
+		border-radius: 0;
+		background: var(--bg-primary);
+		position: relative;
+		z-index: 1;
+	}
+
+	.feature-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 64px;
+		height: 64px;
+		background: var(--bg-primary);
+		color: var(--primary);
+		border: 2px solid var(--primary);
+		border-radius: 50%;
+		margin-bottom: calc(var(--spacing) * 4);
+		transition: border-color 0.2s;
+	}
+	.feature-card:hover .feature-icon {
+		border-color: var(--secondary);
+		color: var(--secondary);
+	}
+
+	.feature-card h3 {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: calc(var(--spacing) * 3);
+	}
+
+	.feature-card p {
+		margin-bottom: calc(var(--spacing) * 4);
+	}
+
+	.feature-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.2s ease;
+		position: relative;
+		padding-right: 1.2em;
+	}
+	.feature-link::after {
+		content: '→';
+		position: absolute;
+		right: 0;
+		top: 0;
+		color: var(--primary);
+		font-weight: bold;
+		transition: color 0.2s;
+	}
+	.feature-link:hover {
+		color: var(--secondary);
+	}
+	.feature-link:hover::after {
+		color: var(--secondary);
+	}
+
+	@media (max-width: 768px) {
+		.hero .container {
+			grid-template-columns: 1fr;
+			gap: calc(var(--spacing) * 8);
+			text-align: center;
+		}
+
+		.hero-title {
+			font-size: 2.25rem;
+		}
+
+		.hero-actions {
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

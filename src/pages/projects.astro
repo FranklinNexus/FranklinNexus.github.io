@@ -1,0 +1,324 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample projects - in a real implementation, these would come from a CMS or database
+const projects = [
+	{
+		id: 1,
+		title: "Task Management App",
+		description: "A modern task management application built with React and TypeScript, featuring real-time collaboration and intuitive design.",
+		image: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=600",
+		technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+		status: "Completed",
+		github: "#",
+		demo: "#"
+	},
+	{
+		id: 2,
+		title: "Weather Dashboard",
+		description: "A beautiful weather dashboard that provides detailed forecasts, interactive maps, and personalized weather insights.",
+		image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
+		technologies: ["Vue.js", "CSS3", "Weather API"],
+		status: "Completed",
+		github: "#",
+		demo: "#"
+	},
+	{
+		id: 3,
+		title: "E-commerce Platform",
+		description: "A full-featured e-commerce platform with payment integration, inventory management, and responsive design.",
+		image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
+		technologies: ["Next.js", "Stripe", "Supabase", "Tailwind CSS"],
+		status: "In Progress",
+		github: "#",
+		demo: "#"
+	}
+];
+---
+
+<Layout title="Projects" description="Showcase of my work, experiments, and passionate projects">
+	<div class="projects-hero">
+		<div class="container">
+			<h1>My Projects</h1>
+			<p class="hero-description">
+				A showcase of my work, experiments, and the projects I'm passionate about building. 
+				Each project represents a learning journey and creative challenge.
+			</p>
+		</div>
+	</div>
+
+	<section class="projects-content">
+		<div class="container">
+			<div class="projects-filters">
+				<button class="filter-btn active">All Projects</button>
+				<button class="filter-btn">Web Apps</button>
+				<button class="filter-btn">Mobile</button>
+				<button class="filter-btn">Open Source</button>
+			</div>
+
+			<div class="projects-grid">
+				{projects.map(project => (
+					<div class="project-card card">
+						<div class="project-image">
+							<img src={project.image} alt={project.title} />
+							<div class="project-status">
+								<span class={`status-badge ${project.status.toLowerCase().replace(' ', '-')}`}>
+									{project.status}
+								</span>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3 class="project-title">{project.title}</h3>
+							<p class="project-description">{project.description}</p>
+							<div class="project-technologies">
+								{project.technologies.map(tech => (
+									<span class="tech-tag">{tech}</span>
+								))}
+							</div>
+							<div class="project-actions">
+								<a href={project.github} class="btn btn-secondary">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+									</svg>
+									Code
+								</a>
+								<a href={project.demo} class="btn btn-primary">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+										<polyline points="15,3 21,3 21,9"></polyline>
+										<line x1="10" y1="14" x2="21" y2="3"></line>
+									</svg>
+									Demo
+								</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="more-projects">
+				<div class="more-card card">
+					<h2>More Projects Coming Soon</h2>
+					<p>
+						I'm constantly working on new projects and experimenting with different technologies. 
+						Check back regularly to see what I'm building next, or follow me on GitHub for real-time updates.
+					</p>
+					<div class="more-actions">
+						<a href="#" class="btn btn-primary">Follow on GitHub</a>
+						<a href="/contact" class="btn btn-secondary">Suggest a Project</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.projects-hero {
+		padding: calc(var(--spacing) * 12) 0 calc(var(--spacing) * 8) 0;
+		background: var(--bg-primary);
+		text-align: center;
+	}
+
+	.projects-hero h1 {
+		font-size: 2.5rem;
+		margin-bottom: calc(var(--spacing) * 4);
+		color: var(--secondary);
+		border-left: 4px solid var(--primary);
+		padding-left: 0.5em;
+		font-weight: 700;
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.projects-content {
+		padding: calc(var(--spacing) * 8) 0;
+	}
+
+	.projects-filters {
+		display: flex;
+		justify-content: center;
+		gap: calc(var(--spacing) * 3);
+		margin-bottom: calc(var(--spacing) * 8);
+		flex-wrap: wrap;
+	}
+
+	.projects-filters .filter-btn {
+		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+		border: 2px solid var(--primary);
+		background: var(--bg-primary);
+		color: var(--primary);
+		border-radius: 0;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-weight: 500;
+	}
+	.projects-filters .filter-btn.active,
+	.projects-filters .filter-btn:hover {
+		background: var(--primary);
+		color: var(--bg-primary);
+		border-color: var(--primary-light);
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: calc(var(--spacing) * 6);
+		margin-bottom: calc(var(--spacing) * 12);
+	}
+
+	.project-card {
+		border: 2px solid var(--border);
+		border-radius: 0;
+		box-shadow: none;
+		background: var(--bg-primary);
+		transition: border-color 0.2s;
+	}
+	.project-card:hover {
+		border-color: var(--primary-light);
+	}
+
+	.project-image {
+		position: relative;
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.project-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.project-card:hover .project-image img {
+		transform: scale(1.05);
+	}
+
+	.project-status {
+		position: absolute;
+		top: calc(var(--spacing) * 3);
+		right: calc(var(--spacing) * 3);
+	}
+
+	.status-badge {
+		padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
+		border-radius: 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		background: var(--primary);
+		color: var(--bg-primary);
+		border: 2px solid var(--primary);
+	}
+	.status-badge.completed {
+		background: var(--secondary);
+		color: var(--primary-light);
+		border-color: var(--primary-light);
+	}
+	.status-badge.in-progress {
+		background: var(--primary-light);
+		color: var(--bg-primary);
+		border-color: var(--primary);
+	}
+
+	.project-content {
+		padding: calc(var(--spacing) * 6);
+	}
+
+	.project-title {
+		font-size: 1.25rem;
+		margin-bottom: calc(var(--spacing) * 3);
+		color: var(--secondary);
+		border-left: 4px solid var(--primary);
+		padding-left: 0.5em;
+		font-weight: 700;
+	}
+
+	.project-description {
+		margin-bottom: calc(var(--spacing) * 4);
+		line-height: 1.6;
+	}
+
+	.project-technologies {
+		display: flex;
+		flex-wrap: wrap;
+		gap: calc(var(--spacing) * 2);
+		margin-bottom: calc(var(--spacing) * 6);
+	}
+
+	.tech-tag {
+		background: var(--bg-accent);
+		color: var(--text-primary);
+		padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
+		border-radius: var(--radius);
+		font-size: 0.75rem;
+		font-weight: 500;
+		border: 1px solid var(--border);
+	}
+
+	.project-actions {
+		display: flex;
+		gap: calc(var(--spacing) * 3);
+	}
+
+	.project-actions .btn {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: calc(var(--spacing) * 2);
+		font-size: 0.875rem;
+		border-radius: 0;
+	}
+
+	.more-projects {
+		margin-top: calc(var(--spacing) * 8);
+	}
+
+	.more-card {
+		text-align: center;
+		background: var(--bg-primary);
+		border: 2px solid var(--primary);
+		border-radius: 0;
+	}
+.more-card h2 {
+	margin-bottom: calc(var(--spacing) * 4);
+	color: var(--secondary);
+}
+.more-card p {
+	margin-bottom: calc(var(--spacing) * 6);
+	font-size: 1.125rem;
+}
+
+	.more-actions {
+		display: flex;
+		gap: calc(var(--spacing) * 4);
+		justify-content: center;
+	}
+
+	@media (max-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.projects-filters {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.more-actions {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.project-actions {
+			flex-direction: column;
+		}
+	}
+</style>
